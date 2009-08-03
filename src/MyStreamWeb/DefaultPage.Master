@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultPage.master.cs" Inherits="MyStreamWeb.DefaultPage" %>
+
+<%@ Import Namespace="MyStream.Business" %>
+<%@ Import Namespace="MyStream.Data" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title></title>
+    <script src="../Scripts/Framework.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <div id="wrapper">
+    	<div id="header">    
+    		<div id="logo">
+                
+                <%
+                    var siteInfo = new Facade().CurrentSiteInfo;
+                %>
+            
+    			<h1><a href="Default.aspx"><%= siteInfo.SiteTitle %></a></h1>
+    			<h2><a href="javascript:;"><%= siteInfo.SiteSlogan %></a></h2>
+    		</div>
+    		<!-- end div#logo -->
+    		<div id="menu">
+                <asp:ContentPlaceHolder runat="server" ID="MenuContentHolder"></asp:ContentPlaceHolder>
+    		</div>
+    		<!-- end div#menu -->
+    	</div>
+    	<!-- end div#header -->
+    	<div id="page">
+    		<div id="page-bgtop">
+    			<div id="content">
+                    <asp:ContentPlaceHolder runat="server" ID="MainContentPlaceHolder"></asp:ContentPlaceHolder>
+
+    			</div>
+    			<!-- end div#content -->
+    			<div id="sidebar">
+                    <asp:ContentPlaceHolder runat="server" ID="SidebarContentPlaceHolder"></asp:ContentPlaceHolder>
+    			</div>
+    			<!-- end div#sidebar -->
+    			<div style="clear: both; height: 1px"></div>
+    		</div>
+    	</div>
+    	<!-- end div#page -->
+        
+    	<div id="footer">
+    		<p id="legal">Copyright &copy; 2009 <a href="http://TanzimSaqib.com">Tanzim Saqib</a>. All Rights Reserved. | CSS: <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+            <p>Free for personal use. Just link to me on the Footer.</p>
+            <p>For commercial distribution or use, please email me at "me at TanzimSaqib.com" to get a license that does not require you to include links to me.</p>         
+    	</div>
+    	<!-- end div#footer -->
+        
+    </div>
+
+</body>
+</html>
