@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Tanzim Saqib. All rights reserved.
+// For continued development and updates, visit http://TanzimSaqib.com
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,10 +48,10 @@ namespace MyStream.Plugins
             return rss.Execute(_Subscription);
         }
 
-        public Subscription GetSubscriptionForAdd(Dictionary<string, string> parameters)
+        public Subscription Subscribe(Dictionary<string, string> parameters)
         {
             parameters["url"] = "http://feeds.delicious.com/v2/rss/" + parameters["delicious_username"] + "?count=15";
-            var subscription = _TheRssPlugin.GetSubscriptionForAdd(parameters);
+            var subscription = _TheRssPlugin.Subscribe(parameters);
 
             subscription.Icon = ICON_PATH;
             subscription.Type = GetTypeName();
