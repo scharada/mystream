@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Tanzim Saqib. All rights reserved.
+// For continued development and updates, visit http://TanzimSaqib.com
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +18,6 @@ namespace MyStream.Plugins
         string GetIconPath();
         string GetShortName();
         string GetFriendlyName();
-        Subscription GetSubscriptionForAdd(Dictionary<string, string> parameters);
+        Subscription Subscribe(Dictionary<string, string> parameters);
     }
 }
