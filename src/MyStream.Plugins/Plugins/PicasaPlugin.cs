@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MyStream.Plugins
 {
-    class PicasaPlugin
+    public sealed class PicasaPlugin
     {
         //http://picasaweb.google.com/data/feed/base/user/tanzimsaqib?access=public
     }

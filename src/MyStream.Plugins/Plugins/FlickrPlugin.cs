@@ -14,7 +14,7 @@ using MyStream.Utilities;
 
 namespace MyStream.Plugins
 {
-    public class FlickrPlugin : IPlugin
+    public sealed class FlickrPlugin : IPlugin
     {
         public const string TYPE_NAME = "FLICKR_PLUGIN";
         public const string FRIENDLY_NAME = "Flickr - Show your recent photos";
@@ -23,7 +23,7 @@ namespace MyStream.Plugins
         private Subscription _Subscription = null;
         private readonly RssPlugin _TheRssPlugin = new RssPlugin();
 
-        [PluginParameter(name: "flickr_username", friendlyName: "Flickr Username", parameterType: PluginParameterType.Required)]
+        [PluginParameter("flickr_username", parameterType: PluginParameterType.Required, friendlyName: "Flickr Username")]
         public string FlickrUserName { get; set; }
 
         public string GetTypeName()

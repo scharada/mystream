@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MyStream.Data
 {
-    public class StreamDataRepository : RepositoryBase, IStreamDataRepository
+    public sealed class StreamDataRepository : RepositoryBase, IStreamDataRepository
     {
         public StreamData Insert(StreamData s)
         {

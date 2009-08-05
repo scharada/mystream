@@ -15,7 +15,7 @@ using System.Data.Linq;
 
 namespace MyStream.Plugins
 {
-    public class RssPlugin : IPlugin
+    public sealed class RssPlugin : IPlugin
     {
         public const string TYPE_NAME = "RSS_PLUGIN";
         public const string FRIENDLY_NAME = "RSS/Atom - Share your and favorite blogs with the world";
@@ -63,7 +63,7 @@ namespace MyStream.Plugins
         {
             _Subscription = subscription;
 
-            var list = new List<StreamItem>();
+            var bag = new System.Collections.Concurrent.ConcurrentBag<StreamItem>();
 
             try
             {
@@ -86,7 +86,7 @@ namespace MyStream.Plugins
                             if (i.Element("description") != null)
                                 streamItem.Description = i.Element("description").Value;
 
-                            list.Add(streamItem);
+                            bag.Add(streamItem);
                         });
                     }
 
@@ -105,13 +105,13 @@ namespace MyStream.Plugins
                             if (i.Element(ns + "content") != null)
                                 streamItem.Description = i.Element(ns + "content").Value;
 
-                            list.Add(streamItem);
+                            bag.Add(streamItem);
                         });
                     }
 
                     // Invalid
                     else
-                        list = null;
+                        bag = null;
 
                 }
             }
@@ -122,9 +122,9 @@ namespace MyStream.Plugins
             }
             finally
             {
-                if (list != null && list.Count > 0)
+                if (bag != null && bag.Count > 0)
                 {
-                    Parallel.ForEach(list, i =>
+                    Parallel.ForEach(bag, i =>
                     {
                         if (i != null && !string.IsNullOrEmpty(i.Description))
                         {
@@ -138,7 +138,7 @@ namespace MyStream.Plugins
                 }
             }
 
-            return list;
+            return bag != null && bag.Count > 0 ? bag.ToList() : null;
         }
 
         public string GetSubscriptionFriendlyName()

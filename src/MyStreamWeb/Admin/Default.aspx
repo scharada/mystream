@@ -3,7 +3,7 @@
 <%@ Import Namespace="MyStream.Business" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MenuContentHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
     <uc1:AdminMenu ID="AdminMenu1" runat="server" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">

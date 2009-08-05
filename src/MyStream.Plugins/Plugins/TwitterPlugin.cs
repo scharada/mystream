@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 
 namespace MyStream.Plugins
 {
-    public class TwitterPlugin : IPlugin
+    public sealed class TwitterPlugin : IPlugin
     {
         public const string TYPE_NAME = "TWITTER_PLUGIN";
         private const string ICON_PATH = "Images/Twitter.png";

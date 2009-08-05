@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
-<asp:Content ID="Content4" ContentPlaceHolderID="MenuContentHolder" runat="server"> 
+<asp:Content ID="Content4" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server"> 
     <uc3:Menu ID="Menu1" runat="server" />
 </asp:Content>
 
