@@ -38,7 +38,7 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MenuContentHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
     <uc1:AdminMenu ID="AdminMenu1" runat="server" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
@@ -51,8 +51,8 @@
             <br /><br />
             
             <form runat="server" id="frmAdd">
-            <table cellpadding="2" cellspacing="3" style="border: 0; width: 100%" id="tabForm" runat="server">            
-            </table>            
+                <table cellpadding="2" cellspacing="3" style="border: 0; width: 100%" id="tabForm" runat="server">            
+                </table>            
             </form>
             <asp:Panel runat="server" Visible="false" ID="pnlInvalidInfo">Invalid information provided. Please <a href="javascript:;" onclick="javascript:history.go(-1);">go back and try again</a>.</asp:Panel>
             <asp:Panel runat="server" Visible="false" ID="pnlSuccess">
@@ -61,10 +61,6 @@
     <%
         }
     %>
-            
-
-
-    <h2></h2>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="SidebarContentPlaceHolder" runat="server">

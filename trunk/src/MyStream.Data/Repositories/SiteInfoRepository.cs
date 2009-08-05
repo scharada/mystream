@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MyStream.Data
 {
-    public class SiteInfoRepository : RepositoryBase, ISiteInfoRepository
+    public sealed class SiteInfoRepository : RepositoryBase, ISiteInfoRepository
     {
         private readonly MyStreamDataContext _dc;
 

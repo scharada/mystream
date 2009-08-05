@@ -12,7 +12,7 @@ using MyStream.Data.ObjectModel;
 
 namespace MyStream.Plugins
 {
-    public class DeliciousPlugin : IPlugin
+    public sealed class DeliciousPlugin : IPlugin
     {
         public const string TYPE_NAME = "DELICIOUS_PLUGIN";
         private const string ICON_PATH = "Images/delicious.png";

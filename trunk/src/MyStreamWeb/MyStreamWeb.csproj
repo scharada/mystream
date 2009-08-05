@@ -200,7 +200,9 @@
   <ItemGroup>
     <Content Include="DefaultPage.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="MyStream.Web.cd" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyStream.Business\MyStream.Business.csproj">
       <Project>{857452F1-43DB-418D-AF4F-AF554E20D3A9}</Project>

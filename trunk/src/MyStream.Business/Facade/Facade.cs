@@ -51,43 +51,30 @@ namespace MyStream.Business
 
         public List<StreamItem> GetStreamItems()
         {
-            var list = new List<StreamItem>();
-
+            var list = new System.Collections.Concurrent.ConcurrentBag<StreamItem>();
             var subscriptions = GetAllSubscriptions();
 
             Parallel.ForEach(subscriptions, s =>
             {
                 var plugin = GetPluginFromSubscription(s);
-
-                List<StreamItem> items = new List<StreamItem>();
+                var items = new List<StreamItem>();
                 var cachedItems = Context.Cache[s.ID.ToString()];
 
-                if (cachedItems != null)
-                {
-                    items = (List<StreamItem>)cachedItems;
-                }
-                else
-                {
-                    items = plugin.Execute(s);
-                }
+                items = cachedItems != null ? (List<StreamItem>)cachedItems : plugin.Execute(s);
 
                 if (items != null && items.Count > 0)
                 {
-                    Context.Cache.Add(s.ID.ToString(), items, null,
+                    Context.Cache.Add(s.ID.ToString(), items.ToList(), null,
                         DateTime.Now.AddSeconds(CurrentSiteInfo.CacheDuration),
                         System.Web.Caching.Cache.NoSlidingExpiration,
                         System.Web.Caching.CacheItemPriority.Normal, null);
 
-                    //SaveStreamItems(items);
-
-                    lock (_lock)
-                    {
-                        list.AddRange(items);
-                    }
+                    items.ForEach(item => list.Add(item));
                 }
             });
-    
-            return list.Where(i => i != null && i.Timestamp != null).OrderByDescending(i => i.Timestamp).ToList();
+
+            return list.Where(i => i != null && i.Timestamp != null)
+                .OrderByDescending(i => i.Timestamp).ToList();
         }
 
         private void SaveStreamItems(List<StreamItem> items)
@@ -108,7 +95,7 @@ namespace MyStream.Business
         {
             if (CurrentSiteInfo.AdminPassword == password)
             {
-                FormsAuthentication.RedirectFromLoginPage("admin", true);
+                FormsAuthentication.RedirectFromLoginPage("admin", false);
                 return true;
             }
             else

@@ -27,7 +27,7 @@
     		</div>
     		<!-- end div#logo -->
     		<div id="menu">
-                <asp:ContentPlaceHolder runat="server" ID="MenuContentHolder"></asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder runat="server" ID="MenuContentPlaceHolder"></asp:ContentPlaceHolder>
     		</div>
     		<!-- end div#menu -->
     	</div>
@@ -36,7 +36,6 @@
     		<div id="page-bgtop">
     			<div id="content">
                     <asp:ContentPlaceHolder runat="server" ID="MainContentPlaceHolder"></asp:ContentPlaceHolder>
-
     			</div>
     			<!-- end div#content -->
     			<div id="sidebar">

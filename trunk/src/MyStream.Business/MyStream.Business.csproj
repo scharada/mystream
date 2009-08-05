@@ -73,7 +73,6 @@
     <Compile Include="Facade\Facade.Subscriptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MyStream.Data\MyStream.Data.csproj">
       <Project>{4C55553F-F84A-4FE0-B4AC-C537B1DD3FD1}</Project>
