@@ -16,7 +16,6 @@ namespace MyStream.Plugins
         {
             var list = new List<PluginParameterAttribute>();
             var type = plugin.GetType();
-            var fields = type.GetFields();
 
             var properties = type.GetProperties();
             foreach (var property in properties)
