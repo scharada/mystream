@@ -20,6 +20,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -177,7 +181,7 @@
     <Compile Include="UserControls\SubscriptionsSidebar.ascx.designer.cs">
       <DependentUpon>SubscriptionsSidebar.ascx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\Html.cs" />
+    <Compile Include="Utilities\Html.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,7 +197,7 @@
       <DependentUpon>DefaultPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="App_Code\ThemedPageBase.cs">
+    <Compile Include="Utilities\ThemedPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
@@ -225,8 +229,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1684</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>9001</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
